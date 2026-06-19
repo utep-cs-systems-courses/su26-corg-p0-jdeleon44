@@ -29,7 +29,7 @@ void print_triangle(int leftCol, int size)
 // Prints an arrow pointing right with specified size
 void print_arrow(int leftCol, int size)
 {
-  // Arrow head (upper half of triangle)
+  // Arrow head
   for (int row = 0; row < size; row++) {
     int col;
     for (col = 0; col < leftCol + size - row; col++) putchar(' ');
