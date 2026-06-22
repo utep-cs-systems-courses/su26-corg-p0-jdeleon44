@@ -15,18 +15,27 @@ void print_square(int leftCol, int size)
 }
 
 // Prints a triangle of specified height whose left edge is at col leftCol.
-// Draws a vertical line down the center column of the triangle using '|'.
+// After drawing the triangle, draws a vertical line starting from the
+// bottom-center of the triangle and extending downward using '|'.
 void print_triangle(int leftCol, int size)
 {
   int centerCol = leftCol + size;
+
+  /* Draw the triangle (rows 0 .. size). */
   for (int row = 0; row <= size; row++) {
     int minCol = leftCol + size - row, maxCol = leftCol + size + row;
     int col;
     for (col = 0; col < minCol; col++) putchar(' ');
-    for (       ; col <= maxCol; col++) {
-      if (col == centerCol) putchar('|');
-      else putchar('*');
-    }
+    for (       ; col <= maxCol; col++) putchar('*');
+    putchar('\n');
+  }
+
+  /* Draw a vertical line that starts at the triangle's base center and
+     extends downward for `size` rows. */
+  for (int i = 0; i < size; i++) {
+    int col;
+    for (col = 0; col < centerCol; col++) putchar(' ');
+    putchar('|');
     putchar('\n');
   }
 }
