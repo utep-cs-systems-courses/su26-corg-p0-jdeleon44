@@ -15,13 +15,8 @@ void print_square(int leftCol, int size)
 }
 
 // Prints a triangle of specified height whose left edge is at col leftCol.
-// After drawing the triangle, draws a vertical line starting from the
-// bottom-center of the triangle and extending downward using '|'.
 void print_triangle(int leftCol, int size)
 {
-  int centerCol = leftCol + size;
-
-  /* Draw the triangle (rows 0 .. size). */
   for (int row = 0; row <= size; row++) {
     int minCol = leftCol + size - row, maxCol = leftCol + size + row;
     int col;
@@ -30,21 +25,19 @@ void print_triangle(int leftCol, int size)
     putchar('\n');
   }
 
-  /* Draw a vertical line that starts at the triangle's base center and
-     extends downward for `size` rows. */
-  for (int i = 0; i < size; i++) {
-    int col;
-    for (col = 0; col < centerCol; col++) putchar(' ');
-    putchar('|');
-    putchar('\n');
-  }
-}
 
-// Prints an arrow pointing right with specified size
+//Prints an arrow
 void print_arrow(int leftCol, int size)
 {
-  // Arrow head
-  for (int row = 0; row < size; row++) {
+  //Follow the same logic as print_triangle to create the arrow head
+  for (int row = 0; row <= size; row++) {
+    int minCol = leftCol + size - row, maxCol = leftCol + size + row;
     int col;
-    for (col = 0; col < leftCol + size - row; col++) putchar(' ');
+    for (col = 0; col < minCol; col++) putchar(' ');
+    for (       ; col <= maxCol; col++) putchar('*');
+    putchar('\n');
+  }
+  //Create the tail of the arrow
+  for(int row = 0; row <= size; row++){
+  }
 }
