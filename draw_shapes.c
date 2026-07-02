@@ -37,7 +37,4 @@ void print_arrow(int leftCol, int size)
     for (       ; col <= maxCol; col++) putchar('*');
     putchar('\n');
   }
-  //Create the tail of the arrow
-  for(int row = 0; row <= size; row++){
-  }
 }
